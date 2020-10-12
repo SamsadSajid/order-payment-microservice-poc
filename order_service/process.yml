@@ -1,0 +1,17 @@
+apps:
+    - script   : src/app.ts
+      name     : 'Typescript-tut'
+      instances: 1
+      exec_mode: cluster
+      log_date_format : "YYYY-MM-DD HH:mm:ss.SSS ZZ"
+      combine_logs : true
+      merge_logs : true
+      watch: true
+      env:
+          NODE_ENV: development
+      env_staging:
+          NODE_ENV: staging
+      env_prod:
+          NODE_ENV: production
+      env_lt:
+          NODE_ENV: lt
