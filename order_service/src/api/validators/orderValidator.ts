@@ -1,7 +1,7 @@
 import { Joi } from "celebrate";
 
 export default Joi.object().keys({
-    _id: Joi.string()
+    id: Joi.string()
         .required()
         .alphanum(),
     userName: Joi.string()

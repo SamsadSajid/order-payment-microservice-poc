@@ -1,5 +1,5 @@
 export interface IOrder {
-    _id: string;
+    id: string;
     userName: string;
     order: string[];
 }

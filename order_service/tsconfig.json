@@ -5,9 +5,13 @@
       "es2017",
       "esnext.asynciterable"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/types/*"]
+    },
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "src"
     ],
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
