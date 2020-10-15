@@ -3,7 +3,7 @@ import { Container } from "typedi";
 import { Logger } from "winston";
 import OrderService from "../../services/order";
 import { IOrder } from "../../interfaces/IOrder";
-import orderValidator from "../validators/orderValidator";
+import orderValidator from "../../validators/orderValidator";
 import { celebrate } from "celebrate";
 
 const route = Router();
@@ -20,16 +20,20 @@ export default (app: Router) => {
 
             const orderService = Container.get(OrderService);
 
-            const { user, token } = await orderService.order(
+            const { isError, user, token } = await orderService.order(
                 req.body as IOrder
             );
 
-            return res
-                .json({
+            if (isError) {
+                return res.status(400).json({
+                    message: "Could not create the order. Please try again."
+                });
+            } else {
+                return res.status(200).json({
                     user: user,
                     token: token
-                })
-                .status(200);
+                });
+            }
         }
     );
 };

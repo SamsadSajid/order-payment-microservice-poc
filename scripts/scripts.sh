@@ -1,0 +1,1 @@
+protoc --proto_path=../payment_service/protos/v2Order.proto --go_out=plugins=grpc:.

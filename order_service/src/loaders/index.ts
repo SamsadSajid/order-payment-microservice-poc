@@ -2,6 +2,7 @@ import expressLoader from "./express";
 import Logger from "./logger";
 import dependencyInjectorLoader from "./dependencyInjector";
 import mongooseLoader from "./mongoose";
+import paymentRPCLoader from "./paymentRpc";
 
 export default async ({ expressApp }) => {
     await mongooseLoader();
@@ -17,4 +18,7 @@ export default async ({ expressApp }) => {
 
     await expressLoader({ app: expressApp });
     Logger.info("✌️ Express loaded");
+
+    await paymentRPCLoader();
+    Logger.info("✌️ PaymentRPC loaded");
 };

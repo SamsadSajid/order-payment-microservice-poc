@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package payment;
+
+message PaymentRequest {
+    string userName = 1;
+    float amount = 2;
+}
+
+message PaymentResponse {
+    float currentBalance = 1;
+    string message = 2;
+    string errorCode = 3;
+}
+
+service PaymentService {
+    rpc MakePayment (PaymentRequest) returns (PaymentResponse) {};
+}
